@@ -10,7 +10,6 @@ const App = () => {
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
-  let newArray = []
   
   useEffect(() => {
     axios
@@ -30,7 +29,14 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <Character character={char}/>
+      <div>
+        {<Character character={char} key={char.timeStamp}/>
+          // char.map((individual)=>{
+          //   //console.log(individual);
+          //   return (<Character character={individual}/>);
+          // })
+        }
+        </div>
     </div>
   );
 }
